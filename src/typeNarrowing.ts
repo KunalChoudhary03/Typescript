@@ -81,3 +81,15 @@ function MakeChai(order:Chai){
       
     }
 }
+
+
+function brew(order: MasalaChai | GingerChai){
+     if("spicelevel" in order){
+        return "brewing masala chai";
+     }
+}
+
+//Unknown type narrowing
+function isStringArray(arr:unknown): arr is string[]{
+    return Array.isArray(arr) && arr.every(item => typeof item === 'string');
+}
