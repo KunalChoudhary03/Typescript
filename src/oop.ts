@@ -54,15 +54,48 @@ class Cup{
 
 }
 
-class ModerChai{
-    private _sugar  = 2;
+class MordernChai {
+    private _sugar = 5;
 
     get sugar(){
-        return this._sugar;
+ return this._sugar;
     }
+    set sugar(value:number){
+        if(value > 5){
+            throw new Error("Too much sugar!");
+        }
+        this._sugar = value;
+    }
+}
 
-   set sugar(value: number){
-    if(value < 5) throw new Error("Too much sugar is not good for health");
-    this._sugar = value;
-   }
+const c = new MordernChai();
+c.sugar = 3; // Allowed: sugar setter is public
+console.log(c.sugar); // Allowed: sugar getter is public
+
+class Tea {
+    static shopName = "Chai corner";
+
+    constructor(public flavor: string) {}
+}
+console.log(Tea.shopName); // Allowed: Accessing static property without creating an instance
+
+abstract class Drink{
+    abstract make(): void;
+}
+class Mychai extends Drink {
+    make() {
+        console.log("Making my chai");
+    }
+}
+
+
+class Heater {
+    heat(){}
+}
+
+class ChaiMaker{
+    constructor(private heater: Heater){}
+    make(){
+        this.heater.heat();
+    }
 }
