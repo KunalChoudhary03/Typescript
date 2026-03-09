@@ -1,0 +1,20 @@
+function wrapInArray<T>(item: T): T[] {
+    return [item];
+}
+
+wrapInArray("masala")
+wrapInArray(42)
+wrapInArray({flavor: "Ginger"})
+
+function pair<A,B>(a:A,b:B):[A,B] {
+    return [a,b];
+}
+
+pair("masala", 10)
+pair("masala",{flavor: "Ginger"})
+
+interface Box<T> {
+    content: T
+}
+const numberBox: Box<number> = {content: 42};
+const numberBoxCup : Box<string> = {content: "10"}
